@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  server:
+    build: .
+    ports:
+      - '8000:8000'
+    environment:
+      JWT_EXPIRES_IN: '1d'
+      JWT_COOKIE_EXPIRES_IN: '1'
+      JWT_SECRET: '3st3S3gr3d0n-e-0m3l40r-s3gr3d0-kkR'
+      NODE_ENV: 'production'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_DB: 'postgres'
+      POSTGRES_PASSWORD: 'secret'
+  db:
+    image: 'postgres'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_DB: 'postgres'
+      POSTGRES_PASSWORD: 'secret'
